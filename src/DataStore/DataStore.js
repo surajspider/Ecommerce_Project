@@ -6,7 +6,7 @@ export const storeData = createContext();
 function DataStore({ children }) {
     const [data, setData] = useState([]);
     const fetchfun = async () => {
-        const res = await fetch("http://localhost:4500/api/alldata");
+        const res = await fetch("https://ecommerce-ns6o.onrender.com/api/alldata");
         const user = await res.json();
         setData(user);
     }
