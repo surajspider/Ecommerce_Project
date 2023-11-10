@@ -1,0 +1,320 @@
+/* navbar styles */
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0px 10px 10px grey;
+    margin-bottom: 1%;
+}
+
+.navroute {
+    width: 40%;
+    /* border: 1px solid white; */
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 0.5%;
+    justify-content: space-evenly;
+}
+
+.navlink {
+    text-decoration: none;
+    color: azure;
+}
+
+.sitename {
+    background-color: rgb(199, 156, 93);
+}
+
+.searchboxdiv {
+    width: 25%;
+    /* border: 2px solid red; */
+    margin-top: 1.5%;
+}
+
+.searchbox {
+    width: 70%;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.searchboxdiv button {
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.cartcolor {
+    color: white;
+    /* border: 2px solid red; */
+    margin-top: 0.7em;
+}
+
+.usercolor {
+    color: white;
+    /* border: 2px solid green; */
+    margin-top: 0.7em;
+}
+
+.icons {
+    width: 10%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.subroute {
+    /* background-color: whitesmoke; */
+    position: fixed;
+    top: 10.7%;
+    width: 20%;
+    display: flex;
+    z-index: 2;
+    color: white;
+    /* border: 2px solid rgb(199, 156, 93); */
+    box-sizing: border-box;
+    /* border-radius: 10px; */
+}
+
+.subroute1 {
+    background-color: rgb(30, 29, 29);
+    width: 50%;
+}
+
+.subroute2 {
+    background-color: rgb(62, 60, 60);
+    width: 50%;
+}
+
+.subroute_user {
+    position: fixed;
+    top: 10.7%;
+    width: 8%;
+    right: 1%;
+    background-color: rgb(62, 60, 60);
+    color: whitesmoke;
+    z-index: 2;
+}
+
+/* Image Carousel */
+.image-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    /* border: 2px solid red; */
+    height: 60vh;
+}
+
+.image-carousel img {
+    width: 100%;
+    height: 100%;
+    /* You can adjust the maximum height as needed */
+    /* object-fit: cover; */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.autoplay-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: black;
+    color: beige;
+    /* height: 35vh; */
+    margin: 0;
+}
+
+.footerflex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.foot {
+    width: 30%;
+    /* border: 2px solid white; */
+    margin: 0.5%;
+    text-align: center;
+    color: beige;
+}
+
+.foot-one {
+    width: 15%;
+    /* border: 2px solid red; */
+}
+
+.foot-one_sub {
+    margin-top: 0.6%;
+    width: 20%;
+    text-align: center;
+    /* border: 2px solid white; */
+}
+
+.foot-two {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 2px solid white; */
+}
+
+.quicktitle {
+    width: 95%;
+    margin: auto;
+    /* border: 2px solid white; */
+    padding: 10px;
+}
+
+.links_foot {
+    /* border: 2px solid white; */
+    width: 40%;
+    margin: auto;
+}
+
+.links2_foot {
+    /* border: 2px solid white; */
+    width: 40%;
+    margin: auto;
+}
+
+.foot-three {
+    /* border: 2px solid red; */
+    width: fit-content;
+}
+
+.marginnonehr {
+    margin: 50px 0px 0px 0px;
+    height: 10vh;
+    text-align: center;
+    background-color: grey;
+    border: 1px solid grey;
+}
+
+.iconfooter {
+    margin-right: 2%;
+}
+
+.hoo {
+    margin: 10px;
+}
+
+/* home itemdiv */
+
+.home_itemsparent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    /* border: 2px solid black; */
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.home_itemdiv {
+    border: 2px solid rgb(232, 225, 225);
+    border-radius: 10px;
+    background-color: rgb(216, 201, 201);
+    width: 17%;
+    height: 40vh;
+    margin-bottom: 2%;
+    margin-right: 5%;
+    padding-top: 1%;
+}
+
+.home_imgdiv {
+    width: 80%;
+    height: 60%;
+    /* border: 2px solid green; */
+    margin: auto;
+}
+
+.imgfil {
+    width: 100%;
+    height: 100%;
+}
+
+
+.pname {
+    margin: 5px 0px 10px 0px;
+}
+
+.price {
+    padding: 0;
+    margin: 5px 0px 10px 0px;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.cartbutton {
+    width: 40%;
+    padding: 3px;
+    background-color: rgb(121, 176, 121);
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Product Page */
+.productdiv {
+    width: 90%;
+    margin: auto;
+    /* border: 2px solid black; */
+    display: flex;
+}
+
+.product_imagediv {
+    /* border: 2px solid red; */
+    width: 35%;
+    height: 70vh;
+}
+
+.product_contentdiv {
+    /* border: 2px solid green; */
+    width: 50%;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.cartbut_productpage {
+    width: 30%;
+    padding: 5px;
+    font-size: larger;
+    font-weight: bold;
+    background-color: rgb(227, 227, 154);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
