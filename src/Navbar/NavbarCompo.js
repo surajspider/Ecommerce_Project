@@ -1,11 +1,33 @@
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ all: false, mobiles: false, electronics: false, iphone: false, watch: false, user: false });
+    const [loginout, setloginout] = useState(true);
+    const navi = useNavigate();
+    const token = localStorage.getItem("token");
+    const logoutfun = () => {
+        console.log("buttonpressed");
+        localStorage.removeItem("token");
+        setloginout(true);
+        navi("/");
+    }
+    useEffect(() => {
+        if (token) {
+            axios.get("https://ecommerce-ns6o.onrender.com/apis/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth
+                .then((res) => {
+                    console.log(res.data.msg);
+                    if (res.data.msg === "User Authorized") {
+                        setloginout(false);
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    }, [token])
     return (
         <div>
             <div className='navbar'>
@@ -107,9 +129,19 @@ function NavbarCompo() {
                     <div onMouseEnter={() => setsubroute({ ...showsubroute, user: true })} onMouseLeave={() => setsubroute({ ...showsubroute, user: false })}>
                         <FontAwesomeIcon icon={faUser} size="2xl" className='usercolor' />
                         {showsubroute.user && (
-                            <div className='subroute_user'>
-                                <h4>Login</h4>
-                                <h4>Sign Up</h4>
+                            <div>
+                                {loginout && (
+                                    <div className='subroute_user'>
+                                        <NavLink className="login_navlink" to="/login"><h4>Login</h4></NavLink>
+                                        <NavLink className="login_navlink" to="/register"><h4>Register</h4></NavLink>
+                                    </div>
+                                )}
+                                {!loginout && (
+                                    <div className='subroute_user' id='logoutdiv'>
+                                        <h4>{ }</h4>
+                                        <NavLink className="login_navlink"><h4 onClick={() => logoutfun()}>Logout</h4></NavLink>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
