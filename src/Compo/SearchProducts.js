@@ -14,7 +14,7 @@ function SearchProducts() {
     return (
         <div>
             <h1 className='dynamictopic'>search results for "{searchText}"</h1>
-            <div className='home_itemsparent'>
+            <div className='search_itemsparent'>
                 {searchResults.map((item, index) => {
                     return (
                         <div className='home_itemdiv' key={index}>

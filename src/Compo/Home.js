@@ -38,8 +38,8 @@ function Home() {
                                     <div className='home_contentdiv'>
                                         <h4 className='pname'>{item.pname}</h4>
                                         <h4 className='price'><span className='strike'>Rs. {item.originalPrice}</span> Rs. {item.offerPrice}</h4>
-                                        <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
                                     </div>
+                                    <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
                                 </Link>
                             </div>
                         )

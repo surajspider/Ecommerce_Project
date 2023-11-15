@@ -51,8 +51,8 @@ function All() {
                                     <h4 className='pname'>{item.pname}</h4>
                                     <h4 className='price'><span className='strike'>Rs. {item.originalPrice} </span> Rs. {item.offerPrice}</h4>
                                 </div>
-                                <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
                             </Link>
+                            <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
                         </div>
                     )
                 })}

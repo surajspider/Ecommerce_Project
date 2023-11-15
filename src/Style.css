@@ -275,17 +275,21 @@
     border-radius: 10px;
     background-color: rgb(253, 247, 247);
     width: 17%;
-    height: 40vh;
+    /* height: 40vh; */
     margin-bottom: 2%;
     margin-right: 5%;
     padding-top: 1%;
 }
 
 .home_imgdiv {
-    width: 80%;
-    height: 60%;
+    width: fit-content;
+    height: 25vh;
     /* border: 2px solid green; */
     margin: auto;
+}
+
+.home_contentdiv {
+    min-height: 12vh;
 }
 
 .imgfil {
@@ -488,7 +492,7 @@
     width: 75%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .mobile_itemdiv {
@@ -572,4 +576,76 @@
 .all_contentdiv {
     /* border: 2px solid red; */
     min-height: 12vh;
+}
+
+/* search page */
+.search_itemsparent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    /* border: 2px solid black; */
+    width: 90%;
+    justify-content: center;
+}
+
+@media only screen and (min-width:600px) and (max-width:975px) {
+    .home_itemdiv {
+        width: 40%;
+    }
+
+    .all_itemsparent {
+        /* border: 2px solid red; */
+        justify-content: center;
+    }
+
+    .all_itemdiv {
+        width: 27%;
+        /* border: 2px solid black; */
+    }
+
+    .all_imgdiv {
+        height: 15vh;
+        /* border: 2px solid green; */
+    }
+
+    .all_contentdiv {
+        min-height: 10vh;
+        word-wrap: break-word;
+    }
+
+    .prevbut {
+        width: 20%;
+    }
+
+    .mobile_routediv {
+        width: 20%;
+    }
+
+    .mobile_itemsparent {
+        /* border: 2px solid green; */
+        justify-content: center;
+    }
+
+    .mobile_itemdiv {
+        width: 40%;
+    }
+
+    .registerdiv {
+        width: 60%;
+    }
+
+    .form-group input {
+        width: 50%;
+    }
+
+    .form-group label {
+        text-align: center;
+        margin: 0;
+    }
+
+    .image-carousel {
+        /* border: 2px solid black; */
+        height: 30vh;
+    }
+
 }
