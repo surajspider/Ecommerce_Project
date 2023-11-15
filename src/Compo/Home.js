@@ -11,7 +11,6 @@ function Home() {
     const [datas] = useContext(storeData);
     const navi = useNavigate();
     console.log(datas);
-    console.log(datas.data);
     const shuffledDatas = datas.filter((item) => item.id % 12 === 0)
     const selecteddatas = shuffledDatas.slice(0, 8);
     const images = [
@@ -27,7 +26,7 @@ function Home() {
         <div>
             <ImageCarousel images={images} />
             <div>
-                <h2>Best Seller</h2>
+                <h2 className='dynamictopic'>Best Seller</h2>
                 <div className='home_itemsparent'>
                     {selecteddatas.map((item, index) => {
                         return (

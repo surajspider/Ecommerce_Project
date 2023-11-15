@@ -6,7 +6,7 @@ export const storeData = createContext();
 function DataStore({ children }) {
     const [data, setData] = useState([]);
     const fetchfun = async () => {
-        const res = await fetch("https://ecommerce-ns6o.onrender.com/api/fetchalldata"); // https://ecommerce-ns6o.onrender.com/api/fetchalldata
+        const res = await fetch("https://ecommerce-ns6o.onrender.com/api/fetchalldata"); // https://ecommerce-ns6o.onrender.com/api/fetchalldata http://localhost:4500/api/fetchalldata
         //https://dazzling-raindrop-112b21.netlify.app/
         const user = await res.json();
         setData(user);

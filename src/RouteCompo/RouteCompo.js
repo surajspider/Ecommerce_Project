@@ -13,6 +13,7 @@ import Register from '../Register_Login/Register'
 import Login from '../Register_Login/Login'
 import Cart from '../Cart/Cart'
 import SubroutePage from '../Compo/SubroutePage'
+import SearchProducts from '../Compo/SearchProducts'
 
 function RouteCompo() {
     return (
@@ -31,6 +32,7 @@ function RouteCompo() {
                     <Route path="/login" element={<Login />}></Route>
                     <Route path='/cart' element={<Cart />}></Route>
                     <Route path="/dynamic/:name" element={<SubroutePage />}></Route>
+                    <Route path="/search" element={<SearchProducts />}></Route>
                 </Routes>
             </DataStore>
         </div>

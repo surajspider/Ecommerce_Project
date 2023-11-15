@@ -9,7 +9,32 @@ import { NavLink, useNavigate } from 'react-router-dom'
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ all: false, mobiles: false, electronics: false, iphone: false, watch: false, user: false });
     const [loginout, setloginout] = useState(true);
+    const [searchText, setSearchText] = useState("");
     const navi = useNavigate();
+    const handleInput = (e) => {
+        e.preventDefault();
+        setSearchText(e.target.value);
+    }
+    const handleSearch = async () => {
+        try {
+            const response = await axios.get(`https://ecommerce-ns6o.onrender.com/api/search?searchText=${searchText}`); //https://ecommerce-ns6o.onrender.com/api/search?searchText=${searchText} http://localhost:4500/api/search?searchText=${searchText}
+            const searchResult = response.data;
+            console.log(response.data);
+            console.log(searchResult.length);
+            if (searchResult.length === 0) {
+                alert("Results not found!");
+                setSearchText("");
+                navi("/");
+            }
+            else {
+                navi("/search", { state: { searchResult, searchText } });
+                setSearchText("");
+            }
+        }
+        catch (err) {
+            console.log("Error searching:", err);
+        }
+    }
     const token = localStorage.getItem("token");
     const logoutfun = () => {
         console.log("buttonpressed");
@@ -131,8 +156,8 @@ function NavbarCompo() {
                     </div>
                 </div>
                 <div className='searchboxdiv'>
-                    <input type='text' className='searchbox' placeholder='Search here...'></input>
-                    <button type="button">search</button>
+                    <input type='text' className='searchbox' placeholder='Search here...' value={searchText} onChange={handleInput} />
+                    <button onClick={handleSearch}>search</button>
                 </div>
                 <div className='icons'>
                     <NavLink to="/cart"><FontAwesomeIcon icon={faCartShopping} size='2xl' className='cartcolor' /></NavLink>
