@@ -1,4 +1,11 @@
 /* navbar styles */
+.sticky {
+    position: sticky;
+    top: 0.1%;
+    z-index: 1000;
+    /* width: auto; */
+    /* border: 2px solid green; */
+}
 
 .navbar {
     display: flex;
@@ -61,6 +68,20 @@
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-evenly;
+}
+
+.subroutetitle {
+    font-size: large;
+    text-decoration: underline;
+}
+
+.subroutename {
+    color: white;
+    text-decoration: none;
+}
+
+.subroutename:hover {
+    color: orange;
 }
 
 .subroute {
@@ -126,10 +147,14 @@
     width: 40px;
     height: 40px;
     border: none;
-    background-color: #333;
+    background-color: rgba(140, 234, 140, 0.4);
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.carousel-button:hover {
+    background-color: #333;
 }
 
 .carousel-button.prev {
@@ -248,7 +273,7 @@
 .home_itemdiv {
     border: 2px solid rgb(232, 225, 225);
     border-radius: 10px;
-    background-color: rgb(216, 201, 201);
+    background-color: rgb(253, 247, 247);
     width: 17%;
     height: 40vh;
     margin-bottom: 2%;
@@ -290,6 +315,7 @@
     font-weight: bolder;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 2%;
 }
 
 /* Product Page */
@@ -371,4 +397,179 @@
 .navdeco {
     text-decoration: none;
     color: aliceblue;
+}
+
+/* add to cart page */
+
+.maincart {
+    width: 90%;
+    /* border: 2px solid red; */
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.procartmain {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.productscart {
+    border: 2px solid black;
+    margin: 1%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.cartimgdiv {
+    width: 40%;
+    /* border: 2px solid blue; */
+}
+
+.cartiteminfodiv {
+    /* border: 2px solid green; */
+    width: 55%;
+}
+
+.removecartbut {
+    margin-left: 2%;
+}
+
+.totalamtdiv {
+    width: 50%;
+    /* border: 2px solid violet; */
+}
+
+.amtdiv {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 2%;
+}
+
+/* mobile page */
+.mobile_parentdiv {
+    /* border: 2px solid black; */
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.mobile_route_h2 {
+    text-decoration: underline;
+    color: white;
+    /* text-decoration-color: white; */
+}
+
+.mobile_routediv {
+    /* border: 2px solid black; */
+    width: 18%;
+    text-align: left;
+    padding: 15px;
+    background-color: #333;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.mobile_route_nav {
+    text-decoration: none;
+    color: beige;
+}
+
+.mobile_itemsparent {
+    /* border: 2px solid greenyellow; */
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mobile_itemdiv {
+    border: 2px solid rgb(232, 225, 225);
+    border-radius: 10px;
+    background-color: rgb(253, 247, 247);
+    width: 19%;
+    /* height: max-content; */
+    margin-bottom: 2%;
+    margin-right: 5%;
+    padding-top: 1%;
+}
+
+.mobile_imgdiv {
+    width: fit-content;
+    height: 25vh;
+    /* border: 2px solid green; */
+    margin: auto;
+}
+
+.mobile_contentdiv {
+    /* border: 2px solid red; */
+    min-height: 12vh;
+}
+
+.previousnext_but {
+    /* border: 2px solid black; */
+    margin: auto;
+    width: 100%;
+    /* display: block; */
+}
+
+.prevbut {
+    width: 10%;
+    padding: 5px;
+    font-size: large;
+    font-weight: bold;
+    margin-right: 2%;
+    margin-bottom: 3%;
+    /* color: black; */
+    background-color: rgb(237, 227, 217)
+}
+
+.dynamictopic {
+    text-transform: capitalize;
+    background-color: antiquewhite;
+}
+
+.all_parent {
+    /* width: 90%; */
+    margin: auto;
+    /* border: 2px solid red; */
+}
+
+.all_itemsparent {
+    /* border: 2px solid greenyellow; */
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.all_itemdiv {
+    border: 2px solid rgb(232, 225, 225);
+    border-radius: 10px;
+    background-color: rgb(253, 247, 247);
+    width: 19%;
+    /* height: max-content; */
+    margin-bottom: 2%;
+    margin-right: 5%;
+    padding-top: 1%;
+}
+
+.all_imgdiv {
+    width: fit-content;
+    height: 25vh;
+    /* border: 2px solid green; */
+    margin: auto;
+}
+
+.all_contentdiv {
+    /* border: 2px solid red; */
+    min-height: 12vh;
 }

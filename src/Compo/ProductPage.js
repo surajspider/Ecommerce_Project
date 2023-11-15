@@ -10,8 +10,8 @@ function ProductPage() {
     const [datas] = useContext(storeData);
     const selectedProduct = datas.filter((item) => item.id === pid);
     const addtocartfun = (event) => {
-        navi("/iphone");
         event.preventDefault();
+        navi("/cart");
     }
     return (
         <div>

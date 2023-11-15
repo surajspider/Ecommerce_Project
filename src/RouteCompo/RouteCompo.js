@@ -11,6 +11,8 @@ import DataStore from '../DataStore/DataStore'
 import ProductPage from '../Compo/ProductPage'
 import Register from '../Register_Login/Register'
 import Login from '../Register_Login/Login'
+import Cart from '../Cart/Cart'
+import SubroutePage from '../Compo/SubroutePage'
 
 function RouteCompo() {
     return (
@@ -27,6 +29,8 @@ function RouteCompo() {
                     <Route path="/product/:id" element={<ProductPage />}></Route>
                     <Route path='/register' element={<Register />}></Route>
                     <Route path="/login" element={<Login />}></Route>
+                    <Route path='/cart' element={<Cart />}></Route>
+                    <Route path="/dynamic/:name" element={<SubroutePage />}></Route>
                 </Routes>
             </DataStore>
         </div>

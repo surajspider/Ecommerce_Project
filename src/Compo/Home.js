@@ -11,13 +11,16 @@ function Home() {
     const [datas] = useContext(storeData);
     const navi = useNavigate();
     console.log(datas);
+    console.log(datas.data);
+    const shuffledDatas = datas.filter((item) => item.id % 12 === 0)
+    const selecteddatas = shuffledDatas.slice(0, 8);
     const images = [
         image1,
         image2,
         image3
     ]
     const addtocartfun = (event) => {
-        navi("/iphone");
+        navi("/cart");
         event.preventDefault();
     }
     return (
@@ -26,7 +29,7 @@ function Home() {
             <div>
                 <h2>Best Seller</h2>
                 <div className='home_itemsparent'>
-                    {datas.map((item, index) => {
+                    {selecteddatas.map((item, index) => {
                         return (
                             <div className='home_itemdiv' key={index}>
                                 <Link style={{ textDecoration: "none", color: "black" }} to={`/product/${item.id}`}>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
+
 function Login() {
     const [data, setData] = useState({
         email: "",
@@ -21,11 +22,12 @@ function Login() {
         }
         else {
             console.log(data);
-            axios.post("https://ecommerce-ns6o.onrender.com/apis/login", data) //http://localhost:4500/apis/login
+            axios.post("https://ecommerce-ns6o.onrender.com/apis/login", data) //https://ecommerce-ns6o.onrender.com/apis/login http://localhost:4500/apis/login
                 .then((res) => {
                     alert(res.data.msg);
                     if (res.data.msg === "User Logged in Successfully!") {
                         localStorage.setItem("token", res.data.token);
+                        console.log(res.data.userdetail)
                         navi("/");
                     }
                 })

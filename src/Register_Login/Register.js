@@ -29,7 +29,7 @@ function Register() {
         }
         else {
             console.log(data);
-            axios.post("https://ecommerce-ns6o.onrender.com/apis/register", data) //http://localhost:4500/apis/register
+            axios.post("https://ecommerce-ns6o.onrender.com/apis/register", data) //https://ecommerce-ns6o.onrender.com/apis/register http://localhost:4500/apis/register
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.msg);
