@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import Menu from './Menu'
 
 
 function NavbarCompo() {
@@ -61,6 +62,9 @@ function NavbarCompo() {
     const wat = ["titan", "fastrack", "smartwatch"];
     return (
         <div className='sticky'>
+            <div className='menu'>
+                <Menu />
+            </div>
             <div className='navbar'>
                 <div><h2 className='sitename'>"Treat yo' self"</h2></div>
                 <div className='navroute'>
@@ -183,6 +187,7 @@ function NavbarCompo() {
 
                 </div>
             </div>
+
         </div>
     )
 }
