@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { storeData } from '../DataStore/DataStore';
 import Footer from './Footer';
+import CartButton from '../Cart/CartButton';
 
 function Iphone() {
     const [datas] = useContext(storeData);
@@ -20,11 +21,7 @@ function Iphone() {
     console.log("filtereddata", filtereddatas.length)
     // const shuffledDatas = [...filtereddatas].sort(() => Math.random() - 0.5);
     // const selectedDatas = shuffledDatas.slice(0, 8);
-    const navi = useNavigate();
-    const addtocartfun = (event) => {
-        navi("/cart");
-        event.preventDefault();
-    }
+
     const handleNextPage = () => {
         if (endIndex < datas.length) {
             setCurrentPage(prevPage => prevPage + 1);
@@ -61,7 +58,7 @@ function Iphone() {
                                         <h4 className='pname'>{item.pname}</h4>
                                         <h4 className='price'><span className='strike'>Rs. {item.originalPrice} </span> Rs. {item.offerPrice}</h4>
                                     </div>
-                                    <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
+                                    <CartButton item={item} />
                                 </Link>
                             </div>
                         )

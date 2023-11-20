@@ -5,12 +5,17 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Menu from './Menu'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetCart } from '../Cart/Redux/CartSlice'
 
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ all: false, mobiles: false, electronics: false, iphone: false, watch: false, user: false });
     const [loginout, setloginout] = useState(true);
     const [searchText, setSearchText] = useState("");
+    const [userinfo, setUserInfo] = useState();
+    const itemsInCart = useSelector((state) => state.cart.itemsInCart);
+    const dispatch = useDispatch();
     const navi = useNavigate();
     const handleInput = (e) => {
         e.preventDefault();
@@ -41,6 +46,7 @@ function NavbarCompo() {
         console.log("buttonpressed");
         localStorage.removeItem("token");
         setloginout(true);
+        dispatch(resetCart());
         navi("/");
     }
     useEffect(() => {
@@ -48,9 +54,10 @@ function NavbarCompo() {
             axios.get("https://ecommerce-ns6o.onrender.com/apis/auth", { headers: { "authorization": `Bearer ${token}` } }) //https://ecommerce-ns6o.onrender.com/apis/auth http://localhost:4500/apis/auth
                 .then((res) => {
                     console.log(res.data.msg);
+                    console.log(res.data.userdata);
                     if (res.data.msg === "User Authorized") {
                         setloginout(false);
-
+                        setUserInfo(res.data.userdata);
                     }
                 })
                 .catch(err => console.log(err))
@@ -164,7 +171,7 @@ function NavbarCompo() {
                     <button onClick={handleSearch}>search</button>
                 </div>
                 <div className='icons'>
-                    <NavLink to="/cart"><FontAwesomeIcon icon={faCartShopping} size='2xl' className='cartcolor' /></NavLink>
+                    <NavLink to="/cart" className="itemscartlen_nav"><FontAwesomeIcon icon={faCartShopping} size='2xl' className='cartcolor' /><span className='cartitemslength'>{itemsInCart.length}</span></NavLink>
                     <div onMouseEnter={() => setsubroute({ ...showsubroute, user: true })} onMouseLeave={() => setsubroute({ ...showsubroute, user: false })}>
                         <FontAwesomeIcon icon={faUser} size="2xl" className='usercolor' />
                         {showsubroute.user && (
@@ -177,7 +184,7 @@ function NavbarCompo() {
                                 )}
                                 {!loginout && (
                                     <div className='subroute_user' id='logoutdiv'>
-                                        <h4>{ }</h4>
+                                        <h4 style={{ textTransform: "capitalize" }}>{userinfo.uname}</h4>
                                         <NavLink className="login_navlink"><h4 onClick={() => logoutfun()}>Logout</h4></NavLink>
                                     </div>
                                 )}

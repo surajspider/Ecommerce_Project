@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { storeData } from '../DataStore/DataStore';
+import CartButton from '../Cart/CartButton';
 
 function SubroutePage() {
     const [datas] = useContext(storeData);
     console.log(datas);
-    const navi = useNavigate();
     const name = useParams().name;
     console.log(name);
     const filtereddatas = datas.filter(item => {
@@ -31,10 +31,6 @@ function SubroutePage() {
     console.log(filtereddatas);
     const divisibleby4 = Math.floor(filtereddatas.length / 4) * 4;
     const selectedDatas = filtereddatas.slice(0, divisibleby4);
-    const addtocartfun = (event) => {
-        navi("/cart");
-        event.preventDefault();
-    }
     return (
         <div>
             <h1 className='dynamictopic'>{name}</h1>
@@ -49,7 +45,7 @@ function SubroutePage() {
                                 <div className='home_contentdiv'>
                                     <h4 className='pname'>{item.pname}</h4>
                                     <h4 className='price'><span className='strike'>Rs. {item.originalPrice}</span> Rs. {item.offerPrice}</h4>
-                                    <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
+                                    <CartButton item={item} />
                                 </div>
                             </Link>
                         </div>

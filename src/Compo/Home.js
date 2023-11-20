@@ -2,14 +2,15 @@ import React, { useContext } from 'react'
 import ImageCarousel from './ImageCarousel'
 import Footer from './Footer';
 import { storeData } from '../DataStore/DataStore';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import CartButton from '../Cart/CartButton';
 const image1 = require("../Images/corousel_1.png");
 const image2 = require("../Images/corousel_2.png");
 const image3 = require("../Images/corousel_3.png");
 
 function Home() {
     const [datas] = useContext(storeData);
-    const navi = useNavigate();
+    // const navi = useNavigate();
     console.log(datas);
     const shuffledDatas = datas.filter((item) => item.id % 12 === 0)
     const selecteddatas = shuffledDatas.slice(0, 8);
@@ -18,10 +19,10 @@ function Home() {
         image2,
         image3
     ]
-    const addtocartfun = (event) => {
-        navi("/cart");
-        event.preventDefault();
-    }
+    // const addtocartfun = (event) => {
+    //     navi("/cart");
+    //     event.preventDefault();
+    // }
     return (
         <div>
             <ImageCarousel images={images} />
@@ -39,7 +40,7 @@ function Home() {
                                         <h4 className='pname'>{item.pname}</h4>
                                         <h4 className='price'><span className='strike'>Rs. {item.originalPrice}</span> Rs. {item.offerPrice}</h4>
                                     </div>
-                                    <button className='cartbutton' onClick={(event) => addtocartfun(event)}>Add to cart</button>
+                                    <CartButton item={item} />
                                 </Link>
                             </div>
                         )

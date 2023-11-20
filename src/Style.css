@@ -76,6 +76,19 @@
     justify-content: space-evenly;
 }
 
+.itemscartlen_nav {
+    text-decoration: none;
+}
+
+.cartitemslength {
+    color: greenyellow;
+    /* border: 2px solid red; */
+    position: relative;
+    margin-top: 5px;
+    font-size: larger;
+    top: 10%;
+}
+
 .subroutetitle {
     font-size: large;
     text-decoration: underline;
@@ -360,6 +373,12 @@
     cursor: pointer;
 }
 
+.cartimgdiv {
+    /* border: 2px solid red; */
+    margin: auto;
+
+}
+
 /* Register form */
 .registerpage {
     margin-top: 7%;
@@ -592,6 +611,8 @@
     /* border: 2px solid black; */
     width: 90%;
     justify-content: center;
+
+
 }
 
 @media only screen and (min-width:600px) and (max-width:975px) {
