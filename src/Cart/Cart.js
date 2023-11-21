@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { decrement, deleteItem, increment, resetCart } from './Redux/CartSlice';
+import PaypalPayment from '../PaymentGateway/PaypalPayment';
 
 function Cart() {
     // const [toggle, setToggle] = useState(false);
@@ -26,10 +27,11 @@ function Cart() {
     const buynow = () => {
         alert("Order Placed Successfully!")
         dispatch(resetCart());
+        // setToggle(true);
     }
     useEffect(() => {
         if (token) {
-            axios.get("http://localhost:4500/apis/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+            axios.get("https://ecommerce-ns6o.onrender.com/apis/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
                 .then((res) => {
                     console.log(res.data);
                 })
@@ -70,6 +72,7 @@ function Cart() {
                             <h3>Total Products Added - {itemsInCart.length}</h3>
                             <h2>Total Amount - Rs. {itemsInCart.reduce((total, item) => total + item.offerPrice * item.quantity, 0)}</h2>
                             <button onClick={buynow}>Buy Now</button>
+                            <PaypalPayment />
                         </div>
                     </div>
                 </div>
