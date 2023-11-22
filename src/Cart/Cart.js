@@ -1,16 +1,17 @@
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import { decrement, deleteItem, increment, resetCart } from './Redux/CartSlice';
+import { decrement, deleteItem, increment } from './Redux/CartSlice';
 import PaypalPayment from '../PaymentGateway/PaypalPayment';
 
 function Cart() {
-    // const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(false);
     const navi = useNavigate();
     const token = localStorage.getItem("token");
     const dispatch = useDispatch();
     const itemsInCart = useSelector((state) => state.cart.itemsInCart);
+    const totalAmt = useSelector((state) => state.cart.totalAmount);
     console.log(itemsInCart.length);
     // itemsInCart.length > 0 ? setToggle(false) : "";
     // console.log("len:", len);
@@ -25,10 +26,12 @@ function Cart() {
         dispatch(deleteItem(item));
     }
     const buynow = () => {
-        alert("Order Placed Successfully!")
-        dispatch(resetCart());
-        // setToggle(true);
+        alert("Proceed to Payment");
+        // dispatch(resetCart());
+        setToggle(!toggle);
     }
+    // const totalAmount = itemsInCart.reduce((total, item) => total + item.offerPrice * item.quantity, 0);
+    // const [totalAmount, setAmount] = useState(itemsInCart.reduce((total, item) => total + item.offerPrice * item.quantity, 0))
     useEffect(() => {
         if (token) {
             axios.get("https://ecommerce-ns6o.onrender.com/apis/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
@@ -70,9 +73,10 @@ function Cart() {
                     <div className='totalamtdiv'>
                         <div className='amtdiv'>
                             <h3>Total Products Added - {itemsInCart.length}</h3>
-                            <h2>Total Amount - Rs. {itemsInCart.reduce((total, item) => total + item.offerPrice * item.quantity, 0)}</h2>
-                            <button onClick={buynow}>Buy Now</button>
-                            <PaypalPayment />
+                            <h2>Total Amount - Rs. {totalAmt}</h2>
+                            {!toggle ? <button className='paymentbut' onClick={buynow}>Proceed to Payment</button> : ""}
+                            {console.log(itemsInCart)}
+                            {toggle ? <PaypalPayment cartData={itemsInCart} totalAmount={totalAmt} /> : ""}
                         </div>
                     </div>
                 </div>

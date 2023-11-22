@@ -615,6 +615,13 @@
 
 }
 
+.paymentbut {
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(102, 102, 157);
+    cursor: pointer;
+}
+
 @media only screen and (min-width:600px) and (max-width:975px) {
     .navbar {
         display: none;
